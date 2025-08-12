@@ -1,10 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Play, Calendar, Clock, MapPin } from 'lucide-react';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const GallerySection = () => {
   const [selectedMedia, setSelectedMedia] = useState(null);
+  const [testimonials, setTestimonials] = useState([]);
+  const [isLoadingTestimonials, setIsLoadingTestimonials] = useState(true);
+
+  // Load testimonials on component mount
+  useEffect(() => {
+    const loadTestimonials = async () => {
+      try {
+        const response = await axios.get(`${API}/testimonials`);
+        setTestimonials(response.data);
+      } catch (error) {
+        console.error('Error loading testimonials:', error);
+        // Use fallback testimonials if API fails
+        setTestimonials([
+          {
+            name: "Maria Rodriguez",
+            location: "Boca Raton, FL",
+            quote: "Galo Logistics always delivers on time and with a smile. Best DSP in South Florida!",
+            rating: 5
+          },
+          {
+            name: "James Thompson", 
+            location: "West Palm Beach, FL",
+            quote: "Professional, reliable, and truly care about the community they serve.",
+            rating: 5
+          }
+        ]);
+      } finally {
+        setIsLoadingTestimonials(false);
+      }
+    };
+
+    loadTestimonials();
+  }, []);
 
   const galleryItems = [
     {
