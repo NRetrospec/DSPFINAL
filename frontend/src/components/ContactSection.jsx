@@ -17,7 +17,37 @@ const ContactSection = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [faqs, setFaqs] = useState([]);
+  const [isLoadingFaqs, setIsLoadingFaqs] = useState(true);
   const { toast } = useToast();
+
+  // Load FAQs on component mount
+  useEffect(() => {
+    const loadFaqs = async () => {
+      try {
+        const response = await axios.get(`${API}/faqs`);
+        setFaqs(response.data);
+      } catch (error) {
+        console.error('Error loading FAQs:', error);
+        // Use fallback FAQs if API fails
+        setFaqs([
+          {
+            question: "What areas do you service?",
+            answer: "We provide delivery services throughout Palm Beach County, including Boca Raton, Delray Beach, Boynton Beach, Lake Worth, Wellington, and West Palm Beach."
+          },
+          {
+            question: "What are your delivery hours?",
+            answer: "Our delivery window is from 6AM to 9PM, Monday through Sunday. Most deliveries are completed between 10AM and 8PM."
+          }
+        ]);
+      } finally {
+        setIsLoadingFaqs(false);
+      }
+    };
+
+    loadFaqs();
+  }, []);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -26,14 +56,30 @@ const ContactSection = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock form submission
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting Galo Logistics. We'll get back to you within 24 hours.",
-    });
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await axios.post(`${API}/contact`, formData);
+      
+      if (response.data) {
+        toast({
+          title: "Message Sent Successfully!",
+          description: "Thank you for contacting Galo Logistics. We'll get back to you within 24 hours.",
+        });
+        setFormData({ name: '', email: '', message: '' });
+      }
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      toast({
+        title: "Error Sending Message",
+        description: "There was an issue sending your message. Please try again or call us directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
