@@ -1,14 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { MapPin, Users, Award, Clock, Shield, Heart } from 'lucide-react';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const AboutSection = () => {
-  const stats = [
-    { icon: Users, label: "Team Members", value: "25+" },
-    { icon: Award, label: "Years Experience", value: "5+" },
-    { icon: Clock, label: "On-Time Delivery", value: "99.2%" },
-    { icon: Shield, label: "Customer Rating", value: "4.9★" }
+  const [stats, setStats] = useState(null);
+  const [isLoadingStats, setIsLoadingStats] = useState(true);
+
+  // Load company stats on component mount
+  useEffect(() => {
+    const loadStats = async () => {
+      try {
+        const response = await axios.get(`${API}/stats`);
+        setStats(response.data);
+      } catch (error) {
+        console.error('Error loading company stats:', error);
+        // Use fallback stats if API fails
+        setStats({
+          team_members: "25+",
+          years_experience: "5+",
+          on_time_delivery: "99.2%",
+          customer_rating: "4.9★"
+        });
+      } finally {
+        setIsLoadingStats(false);
+      }
+    };
+
+    loadStats();
+  }, []);
+
+  const getStatsArray = (statsData) => [
+    { icon: Users, label: "Team Members", value: statsData?.team_members || "25+" },
+    { icon: Award, label: "Years Experience", value: statsData?.years_experience || "5+" },
+    { icon: Clock, label: "On-Time Delivery", value: statsData?.on_time_delivery || "99.2%" },
+    { icon: Shield, label: "Customer Rating", value: statsData?.customer_rating || "4.9★" }
   ];
 
   const coverageAreas = [
