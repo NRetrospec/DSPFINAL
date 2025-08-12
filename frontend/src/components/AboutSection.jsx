@@ -62,15 +62,28 @@ const AboutSection = () => {
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {stats.map((stat, index) => (
-            <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6">
-                <stat.icon className="w-10 h-10 text-orange-500 mx-auto mb-3" />
-                <div className="text-3xl font-bold text-navy-900 mb-1">{stat.value}</div>
-                <div className="text-gray-600 text-sm">{stat.label}</div>
-              </CardContent>
-            </Card>
-          ))}
+          {isLoadingStats ? (
+            // Loading skeleton for stats
+            [1, 2, 3, 4].map((i) => (
+              <Card key={i} className="text-center">
+                <CardContent className="p-6">
+                  <div className="w-10 h-10 bg-gray-200 rounded-full mx-auto mb-3 animate-pulse"></div>
+                  <div className="h-8 bg-gray-200 rounded animate-pulse mb-1"></div>
+                  <div className="h-4 bg-gray-100 rounded animate-pulse"></div>
+                </CardContent>
+              </Card>
+            ))
+          ) : (
+            getStatsArray(stats).map((stat, index) => (
+              <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-6">
+                  <stat.icon className="w-10 h-10 text-orange-500 mx-auto mb-3" />
+                  <div className="text-3xl font-bold text-navy-900 mb-1">{stat.value}</div>
+                  <div className="text-gray-600 text-sm">{stat.label}</div>
+                </CardContent>
+              </Card>
+            ))
+          )}
         </div>
 
         {/* Main Content */}
