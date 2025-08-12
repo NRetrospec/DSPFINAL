@@ -146,6 +146,9 @@ backend:
       - working: true
         agent: "main"
         comment: "GET /api/testimonials endpoint implemented, seeded with 3 testimonials, tested via curl and frontend integration working."
+      - working: true
+        agent: "testing"
+        comment: "Comprehensive testing completed: GET /api/testimonials returns 3 active testimonials with proper structure (name, location, quote, rating). Correctly filters to show only active testimonials (is_active: true). Database integration working correctly with proper error handling."
 
   - task: "FAQ API endpoint"
     implemented: true
