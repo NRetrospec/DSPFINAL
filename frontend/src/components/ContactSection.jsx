@@ -109,33 +109,6 @@ const ContactSection = () => {
     }
   ];
 
-  const faqs = [
-    {
-      question: "What areas do you service?",
-      answer: "We provide delivery services throughout Palm Beach County, including Boca Raton, Delray Beach, Boynton Beach, Lake Worth, Wellington, and West Palm Beach. If you're unsure if we serve your area, please contact us!"
-    },
-    {
-      question: "What are your delivery hours?",
-      answer: "Our delivery window is from 6AM to 9PM, Monday through Sunday. Most deliveries are completed between 10AM and 8PM, but we work extended hours during peak seasons to ensure all packages are delivered on time."
-    },
-    {
-      question: "How can I track my package?",
-      answer: "All packages are tracked through Amazon's tracking system. You'll receive notifications with tracking information when your package is out for delivery. You can also track your package directly through your Amazon account or the Amazon app."
-    },
-    {
-      question: "What if I'm not home for delivery?",
-      answer: "We follow Amazon's delivery protocols. If you're not home, we'll attempt to deliver to a safe location on your property or follow any specific delivery instructions you've provided. For packages requiring a signature, we'll attempt redelivery or leave a notice."
-    },
-    {
-      question: "Do you handle special delivery requests?",
-      answer: "Yes! We accommodate special delivery instructions whenever possible. You can add delivery notes in your Amazon account, or contact us directly for specific requirements. We're committed to making sure your packages are delivered safely and conveniently."
-    },
-    {
-      question: "How do I report an issue with my delivery?",
-      answer: "If you experience any issues with your delivery, please contact us immediately at (561) 555-0123 or email info@galologistics.com. We take all delivery concerns seriously and will work quickly to resolve any problems."
-    }
-  ];
-
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
