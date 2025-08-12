@@ -180,6 +180,18 @@ backend:
         agent: "testing"
         comment: "Database integration verified through API testing. All seeded data (company stats, testimonials, FAQs) properly accessible through respective endpoints. MongoDB connection and data persistence working correctly."
 
+  - task: "Health check API endpoint"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "GET /api/health endpoint tested and working correctly. Returns proper JSON response with status: 'healthy', service name, and timestamp. Database connectivity check included. Proper error handling with 503 status on database connection failure."
+
 frontend:
   - task: "Contact form frontend integration"
     implemented: true
