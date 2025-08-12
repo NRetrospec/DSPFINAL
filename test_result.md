@@ -161,6 +161,9 @@ backend:
       - working: true
         agent: "main"
         comment: "GET /api/faqs endpoint implemented, seeded with 6 FAQs, tested via curl and frontend loads with accordion."
+      - working: true
+        agent: "testing"
+        comment: "Comprehensive testing completed: GET /api/faqs returns 6 active FAQs with proper structure (question, answer). Correctly filters to show only active FAQs (is_active: true) and properly orders them by 'order' field. Database integration working correctly with proper error handling."
 
   - task: "Database seeding script"
     implemented: true
