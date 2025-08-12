@@ -230,18 +230,29 @@ const ContactSection = () => {
             Frequently Asked Questions
           </h3>
           <div className="max-w-4xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-lg shadow-sm">
-                  <AccordionTrigger className="px-6 py-4 text-left text-navy-900 font-semibold hover:text-orange-600 transition-colors">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4 text-gray-700 leading-relaxed">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            {isLoadingFaqs ? (
+              <div className="space-y-4">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="bg-white rounded-lg shadow-sm p-6">
+                    <div className="h-6 bg-gray-200 rounded animate-pulse mb-2"></div>
+                    <div className="h-4 bg-gray-100 rounded animate-pulse"></div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <Accordion type="single" collapsible className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <AccordionItem key={faq.id || index} value={`item-${index}`} className="bg-white rounded-lg shadow-sm">
+                    <AccordionTrigger className="px-6 py-4 text-left text-navy-900 font-semibold hover:text-orange-600 transition-colors">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-4 text-gray-700 leading-relaxed">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            )}
           </div>
         </div>
       </div>
