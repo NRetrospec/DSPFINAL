@@ -181,27 +181,46 @@ const GallerySection = () => {
             What Our Community Says
           </h3>
           <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-white hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <span key={i} className="text-orange-500 text-xl">★</span>
-                    ))}
-                  </div>
-                  <p className="text-gray-700 mb-4 italic leading-relaxed">
-                    "{testimonial.quote}"
-                  </p>
-                  <div>
-                    <div className="font-semibold text-navy-900">{testimonial.name}</div>
-                    <div className="text-gray-500 text-sm flex items-center">
-                      <MapPin className="w-4 h-4 mr-1" />
-                      {testimonial.location}
+            {isLoadingTestimonials ? (
+              // Loading skeleton for testimonials
+              [1, 2, 3].map((i) => (
+                <Card key={i} className="bg-white">
+                  <CardContent className="p-6">
+                    <div className="flex mb-4">
+                      {[...Array(5)].map((_, j) => (
+                        <div key={j} className="w-5 h-5 bg-gray-200 rounded animate-pulse mr-1"></div>
+                      ))}
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                    <div className="h-4 bg-gray-200 rounded animate-pulse mb-2"></div>
+                    <div className="h-4 bg-gray-100 rounded animate-pulse mb-4"></div>
+                    <div className="h-5 bg-gray-200 rounded animate-pulse mb-1"></div>
+                    <div className="h-4 bg-gray-100 rounded animate-pulse"></div>
+                  </CardContent>
+                </Card>
+              ))
+            ) : (
+              testimonials.map((testimonial, index) => (
+                <Card key={testimonial.id || index} className="bg-white hover:shadow-lg transition-shadow duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <span key={i} className="text-orange-500 text-xl">★</span>
+                      ))}
+                    </div>
+                    <p className="text-gray-700 mb-4 italic leading-relaxed">
+                      "{testimonial.quote}"
+                    </p>
+                    <div>
+                      <div className="font-semibold text-navy-900">{testimonial.name}</div>
+                      <div className="text-gray-500 text-sm flex items-center">
+                        <MapPin className="w-4 h-4 mr-1" />
+                        {testimonial.location}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))
+            )}
           </div>
         </div>
       </div>
