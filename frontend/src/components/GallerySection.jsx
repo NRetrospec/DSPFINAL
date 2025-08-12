@@ -94,27 +94,6 @@ const GallerySection = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      name: "Maria Rodriguez",
-      location: "Boca Raton, FL",
-      quote: "Galo Logistics always delivers on time and with a smile. Best DSP in South Florida!",
-      rating: 5
-    },
-    {
-      name: "James Thompson", 
-      location: "West Palm Beach, FL",
-      quote: "Professional, reliable, and truly care about the community they serve.",
-      rating: 5
-    },
-    {
-      name: "Sarah Chen",
-      location: "Delray Beach, FL", 
-      quote: "My packages always arrive safely. You can tell they take pride in their work.",
-      rating: 5
-    }
-  ];
-
   return (
     <section id="gallery" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
