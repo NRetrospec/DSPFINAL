@@ -13,7 +13,7 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-fixed transform scale-105"
         style={{
-          backgroundImage: 'linear-gradient(rgba(15, 31, 61, 0.7), rgba(15, 31, 61, 0.5)), url("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")',
+          backgroundImage: 'linear-gradient(rgba(15, 31, 61, 0.7), rgba(15, 31, 61, 0.5)), url("/media/background.png")',
         }}
       />
       
@@ -28,7 +28,7 @@ const HeroSection = () => {
         
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up delay-200">
           Reliable. Local.{' '}
-          <span className="text-orange-400">Amazon DSP</span>{' '}
+          <span className="text-orange-400">Trusted DSP</span>{' '}
           You Can Count On.
         </h1>
         

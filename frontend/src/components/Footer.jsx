@@ -47,7 +47,7 @@ const Footer = () => {
               </div>
               <div>
                 <div className="font-bold text-xl">GALO LOGISTICS</div>
-                <div className="text-gray-400">Your Trusted Amazon DSP Partner</div>
+                <div className="text-gray-400">Your Trusted DSP Partner</div>
               </div>
             </div>
             <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
@@ -57,15 +57,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center text-gray-300">
                 <Phone className="w-5 h-5 mr-3 text-orange-400" />
-                <span>(561) 555-0123</span>
+                <span>(954) 982-1145</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <Mail className="w-5 h-5 mr-3 text-orange-400" />
-                <span>info@galologistics.com</span>
+                <span>galologisticsllc@gmail.com</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <MapPin className="w-5 h-5 mr-3 text-orange-400" />
-                <span>Serving Palm Beach County, FL</span>
+                <span>Boca Raton, FL</span>
               </div>
             </div>
           </div>
@@ -105,7 +105,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2024 Galo Logistics. All rights reserved. | Licensed Amazon DSP Partner
+            © 2024 Galo Logistics. All rights reserved. | Licensed DSP Partner
           </div>
           
           {/* Social Links */}

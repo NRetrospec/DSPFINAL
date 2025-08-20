@@ -34,8 +34,7 @@ const Navigation = () => {
   const navItems = [
     { id: 'hero', label: 'Home' },
     { id: 'about', label: 'About' },
-    { id: 'gallery', label: 'Gallery' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'gallery', label: 'Gallery' }
   ];
 
   const scrollToSection = (sectionId) => {
@@ -68,7 +67,7 @@ const Navigation = () => {
                   GALO LOGISTICS
                 </div>
                 <div className={`text-xs ${isScrolled ? 'text-gray-600' : 'text-gray-300'}`}>
-                  Amazon DSP Partner
+                  DSP Partner
                 </div>
               </div>
             </div>
@@ -96,7 +95,7 @@ const Navigation = () => {
                 onClick={() => scrollToSection('contact')}
                 className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transform hover:scale-105 transition-all duration-300"
               >
-                Get Quote
+                Contact
               </Button>
             </div>
 
@@ -137,7 +136,7 @@ const Navigation = () => {
                   onClick={() => scrollToSection('contact')}
                   className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg"
                 >
-                  Get Quote
+                  Contact
                 </Button>
               </div>
             </div>

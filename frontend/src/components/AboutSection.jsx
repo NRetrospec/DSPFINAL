@@ -21,7 +21,7 @@ const AboutSection = () => {
         console.error('Error loading company stats:', error);
         // Use fallback stats if API fails
         setStats({
-          team_members: "25+",
+          team_members: "40+",
           years_experience: "5+",
           on_time_delivery: "99.2%",
           customer_rating: "4.9★"
@@ -56,7 +56,7 @@ const AboutSection = () => {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Born and raised in South Florida, we understand the pulse of our community. 
-            As a proud Amazon DSP partner, we deliver more than packages – we deliver trust.
+            As a proud DSP partner, we deliver more than packages – we deliver trust.
           </p>
         </div>
 
@@ -106,7 +106,7 @@ const AboutSection = () => {
               </div>
               <div className="flex items-center">
                 <Shield className="w-6 h-6 text-orange-500 mr-3" />
-                <span className="text-gray-700">Fully licensed and insured Amazon DSP</span>
+                <span className="text-gray-700">Fully licensed and insured DSP</span>
               </div>
               <div className="flex items-center">
                 <Award className="w-6 h-6 text-orange-500 mr-3" />
@@ -116,10 +116,10 @@ const AboutSection = () => {
           </div>
           
           <div className="relative">
-            <img 
-              src="https://images.unsplash.com/photo-1521318951415-df55a9b796e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-              alt="Galo Logistics Team" 
-              className="rounded-2xl shadow-2xl w-full h-96 object-cover"
+            <img
+              src="/media/amazon_group.jpeg"
+              alt="Galo Logistics Team"
+              className="rounded-2xl shadow-2xl w-full h-64 object-cover"
             />
             <div className="absolute -bottom-6 -right-6 bg-orange-500 text-white p-4 rounded-xl shadow-lg">
               <div className="text-2xl font-bold">5+</div>

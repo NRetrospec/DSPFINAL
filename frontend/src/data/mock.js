@@ -183,7 +183,7 @@ export const mockData = {
       alt: 'Amazon delivery vans in motion'
     },
     about: {
-      team: 'https://images.unsplash.com/photo-1521318951415-df55a9b796e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      team: '/media/amazon group.png',
       alt: 'Galo Logistics team photo'
     }
   }

@@ -47,7 +47,7 @@ const GallerySection = () => {
     {
       id: 1,
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      src: '/media/morning-prep.jpeg',
       title: 'Morning Route Prep',
       description: 'Our team starts each day with thorough route planning and vehicle inspection',
       tags: ['Morning Routine', 'Safety First']
@@ -55,23 +55,23 @@ const GallerySection = () => {
     {
       id: 2,
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      src: '/media/Loading%20the%20fleet.jpeg',
       title: 'Loading the Fleet',
       description: 'Careful loading ensures packages arrive in perfect condition',
       tags: ['Loading', 'Organization']
     },
     {
       id: 3,
-      type: 'video',
-      src: 'https://images.unsplash.com/photo-1521318951415-df55a9b796e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      title: 'On the Road',
-      description: 'Following our routes through beautiful South Florida neighborhoods',
-      tags: ['Delivery', 'Community']
+      type: 'image',
+      src: '/media/amazon_group.jpeg',
+      title: 'Galo Logistics Team',
+      description: 'Our dedicated team ready to deliver excellence',
+      tags: ['Team', 'Dedication']
     },
     {
       id: 4,
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1516644246113-4052bd2d3ddf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      src: '/media/Customer%20Service.jpeg',
       title: 'Customer Service',
       description: 'Personal touch - we treat every delivery with care and respect',
       tags: ['Customer Care', 'Service']
@@ -79,7 +79,7 @@ const GallerySection = () => {
     {
       id: 5,
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1578836537282-3171d77f8632?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      src: '/media/Meeting.jpeg',
       title: 'Team Meeting',
       description: 'Daily briefings keep our team aligned and motivated',
       tags: ['Teamwork', 'Communication']
@@ -87,7 +87,7 @@ const GallerySection = () => {
     {
       id: 6,
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1525598912003-663126343e1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      src: '/media/end-of-day.jpeg',
       title: 'End of Day',
       description: 'Celebrating another successful day of deliveries',
       tags: ['Success', 'Satisfaction']
@@ -116,11 +116,11 @@ const GallerySection = () => {
               className="group hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2"
               onClick={() => setSelectedMedia(item)}
             >
-              <div className="relative overflow-hidden rounded-t-lg">
-                <img 
-                  src={item.src} 
+              <div className="relative overflow-hidden">
+                <img
+                  src={item.src}
                   alt={item.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className={`w-full ${item.id === 3 ? 'h-64 rounded-2xl shadow-2xl' : 'h-64'} object-cover group-hover:scale-110 transition-transform duration-500`}
                 />
                 {item.type === 'video' && (
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
@@ -155,7 +155,7 @@ const GallerySection = () => {
               <div className="bg-orange-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                 <Clock className="w-10 h-10 text-orange-600" />
               </div>
-              <div className="text-4xl font-bold text-navy-900 mb-2">200+</div>
+              <div className="text-4xl font-bold text-navy-900 mb-2">10,000+</div>
               <div className="text-gray-600">Packages Delivered Daily</div>
             </div>
             <div className="text-center">

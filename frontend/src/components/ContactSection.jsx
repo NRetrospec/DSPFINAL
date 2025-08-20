@@ -86,13 +86,13 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: "(561) 555-0123",
+      details: "(954) 982-1145",
       subtext: "Monday - Friday, 8AM - 6PM"
     },
     {
       icon: Mail,
       title: "Email", 
-      details: "info@galologistics.com",
+      details: "galologisticsllc@gmail.com",
       subtext: "We respond within 24 hours"
     },
     {
